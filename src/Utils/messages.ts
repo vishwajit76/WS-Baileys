@@ -62,6 +62,8 @@ const MessageTypeProto = {
    	'document': WAProto.Message.DocumentMessage,
 } as const
 
+const ButtonType = proto.Message.ButtonsMessage.HeaderType
+
 /**
  * Uses a regex to test whether the string contains a URL, and returns the URL if it does.
  * @param text eg. hello https://google.com
@@ -571,10 +573,7 @@ export const generateWAMessageContent = async(
 			title: message.title,
 			footerText: message.footer,
 			description: message.text,
-			//listType: proto.Message.ListMessage.ListType.SINGLE_SELECT
-
-			//List Message Patch
-			listType: message.hasOwnProperty("listType") ? message.listType : proto.Message.ListMessage.ListType.PRODUCT_LIST
+			listType: proto.Message.ListMessage.ListType.SINGLE_SELECT
 		}
 
 		m = { listMessage }
