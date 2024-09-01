@@ -60,7 +60,6 @@ type Contextable = {
 type ViewOnce = {
     viewOnce?: boolean
 }
-
 type Buttonable = {
     /** add buttons to the message  */
     buttons?: proto.Message.ButtonsMessage.IButton[]
@@ -71,7 +70,6 @@ type Templatable = {
 
     footer?: string
 }
-
 type Editable = {
   edit?: WAMessageKey
 }
@@ -121,7 +119,7 @@ export type AnyMediaMessageContent = (
         jpegThumbnail?: string
         /** if set to true, will send as a `video note` */
         ptv?: boolean
-    } & Mentionable & Contextable & Buttonable & Templatable  &  WithDimensions)
+    } & Mentionable & Contextable & Buttonable & Templatable & WithDimensions)
     | {
         audio: WAMediaUpload
         /** if set to true, will send as a `voice note` */
@@ -167,7 +165,7 @@ export type AnyRegularMessageContent = (
     | AnyMediaMessageContent
     | ({
         poll: PollMessageOptions
-    } & Mentionable & Contextable  & Buttonable & Templatable & Editable)
+    } & Mentionable & Contextable & Buttonable & Templatable & Editable)
     | {
         contacts: {
             displayName?: string
@@ -228,7 +226,7 @@ export type MessageRelayOptions = MinimalRelayOptions & {
     participant?: { jid: string, count: number }
     /** additional attributes to add to the WA binary node */
     additionalAttributes?: { [_: string]: string }
-    // additionalNodes?: BinaryNode[]
+  /**  additionalNodes?: BinaryNode[]*/
     /** should we use the devices cache, or fetch afresh from the server; default assumed to be "true" */
     useUserDevicesCache?: boolean
     /** jid list of participants for status@broadcast */

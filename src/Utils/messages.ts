@@ -515,7 +515,7 @@ export const generateWAMessageContent = async(
 		)
 	}
 
-	if('buttons' in message && !!message.buttons) {
+		if('buttons' in message && !!message.buttons) {
 		const buttonsMessage: proto.Message.IButtonsMessage = {
 			buttons: message.buttons!.map(b => ({ ...b, type: proto.Message.ButtonsMessage.Button.Type.RESPONSE }))
 		}
@@ -578,7 +578,6 @@ export const generateWAMessageContent = async(
 
 		m = { listMessage }
 	}
-
 	if('viewOnce' in message && !!message.viewOnce) {
 		m = { viewOnceMessage: { message: m } }
 	}
